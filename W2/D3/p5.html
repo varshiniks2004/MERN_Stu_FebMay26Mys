@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Hamburger icon base menu </title>
+</head>
+
+<body>
+     <nav class="border rounded-b-xl flex justify-between  bg-pink-500 ">
+        <div class="flex justify-between items-center px-4 h-16">
+            <div class="flex gap-9 items-center">
+                <a href="#" class="font-bold text-xl">Gola</a>
+                <ul class="flex gap-6 text-blue-800 hidden md:flex items-center">
+                    <li><a href="#" class="hover:text-red-800 transition">Home</a></li>
+                    <li><a href="#" class="hover:text-red-800 transition">Features</a></li>
+                    <li><a href="#" class="hover:text-red-800  transition">Contact</a></li>
+                    <li><a href="#" class="hover:text-red-800  transition">About</a></li>
+                </ul>
+            </div>
+            <div class="hidden md:flex items-center gap-3">
+                    <a href="#" class="text-blue-800 hover:white transtion">Login</a>
+            </div>
+                <button id="menubtn"
+                    class="md:hidden items-center justify-center rounded border hover:gray-500 transition inline-flex"
+                    aria-label="Toggel Menu" aria-expanded="false" aria-controls="mobileMenu">
+                    <span class="text-xl leading-none">☰</span>
+                </button>
+        </div>
+                <div id="mobileMenu" class="hidden md:hidden border-t">
+                    <div class="px-6 py-4 space-y-6">
+                        <ul class="flex flex-col gap-4 bg-blue-200">
+                            <li><a href="#" class="block hover:text-black transition">Home</a></li>
+                            <li><a href="#" class="block hover:text-black transition">Features</a></li>
+                            <li><a href="#" class="block hover:text-black transition">contact</a></li>
+                            <li><a href="#" class="block hover:text-black transition">About</a></li>
+                        </ul>
+                        <div class="flex flex-col gap-3 bg-blue-200">
+                            <a href="#" class="block text-gray-800 hover:text-black transition">Login</a>
+                    </div>
+                </div>
+             </div>
+            
+    </nav>
+    <script>
+        const menubtn = document.getElementById("menubtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+        menubtn.addEventListener("click",()=>{
+            mobileMenu.classList.toggle("hidden");
+            mobileMenu.classList.toggle("block");
+            const expanded = menubtn.getAttribute("aria-expanded")=== "true";
+            menubtn.setAttribute("aria-expanded",String(!expanded));
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Carousel</title>
+</head>
+
+<body>
+    <main class="max-w-4xl mx-auto p-6 space-y-8">
+        <section class="border rounded p-6 space-y-4">
+            <div class="overflow-hidden rounded border">
+                <!-- <div class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth"> 
+                    <div id=""
+                        class="w-full shrink-0 h-52 snap-start flex items-center justify-center bg-pink-500 font-bold fornt-red-500 ">
+                        Slide 1
+                    </div>
+                    <div
+                        class="w-full shrink-0 h-52 snap-start flex items-center justify-center bg-green-500 font-bold fornt-red-500 ">
+                        Slide 2
+                    </div>
+                    <div
+                        class="w-full shrink-0 h-52 snap-start flex items-center justify-center bg-red-500 font-bold fornt-red-500 ">
+                        Slide 3
+                    </div>
+                </div> -->
+                <div id="track" class="flex transition-transfrom duration-300 ease-out"> 
+                    <div class="w-full shrink-0 h-52  flex items-center justify-center bg-pink-500 font-bold fornt-red-500 ">
+                        Slide 1
+                    </div>
+                    <div
+                        class="w-full shrink-0 h-52 flex items-center justify-center bg-blue-500 font-bold fornt-red-500 ">
+                        Slide 2
+                    </div>
+                    <div
+                        class="w-full shrink-0 h-52 flex items-center justify-center bg-yellow-500 font-bold fornt-red-500 ">
+                        Slide 3
+                    </div>
+                </div>
+                <!-- button -->
+                <div class="flex justify-between items-center gap-5 space-x-5">
+                    <button id="prevbtn" class="px-3 py-2 rounded border hover:bg-green-200 transition">PREV</button>
+                </div>
+                <div class="flex justify-between items-center">
+                    <button id="nextbtn" class="px-3 py-2 rounded border hover:bg-green-200 transition">NEXT</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        //click button to close
+        const track = document.getElementById("track")
+        const nextbtn = document.getElementById("nextbtn")
+        const prevbtn = document.getElementById("prevbtn")
+        let index = 0 ;
+        const total = 3;
+        function update(){
+            track.style.transform = `translateX(-${index*100}%)`
+        }
+        prevbtn.addEventListener('click', () => {
+            index = (index - 1 + total) % total; update();
+        });
+        nextbtn.addEventListener('click', () => {
+            index = (index + 1 + total) % total; update();
+        });
+        update(); 
+        
+    </script>
+
+</body>
+
+</html>

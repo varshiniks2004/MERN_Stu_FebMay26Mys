@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal overlay</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <!-- modal overlay positioning (fixed + inset-0) -->
+     <main class="max-w-4xl mx-auto p-4 space-y-8">
+        <section class="border rounded p-6 space-y-4">
+            <h2>modal demo</h2>
+            <div class="overflow-auto h-72 border rounded p-4">
+                <div class="space-y-3">
+                    <p>content behind a modal</p>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable
+                    </p>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable
+                    </p>
+                </div>
+            </div>
+            <div class="fixed inset-0 border border-dashed pointer-events-none">
+                <div class="absolute top-4 left-4 border rounded px-3 py-2">
+                    overlay:fixed inset-0
+
+                </div>
+            </div>
+
+        </section>
+     </main>
+    
+</body>
+</html>

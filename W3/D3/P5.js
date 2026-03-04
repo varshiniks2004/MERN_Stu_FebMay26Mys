@@ -1,0 +1,8 @@
+//step size
+for(let i=0;i<=10;i+=2){
+    console.log("i=",i);
+}
+//two counters in one for loop
+for(let i=1,j=5;i<=5&& j>=1;i++,j--){
+    console.log(i,j)
+}

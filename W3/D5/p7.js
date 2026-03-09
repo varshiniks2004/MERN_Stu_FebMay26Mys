@@ -1,0 +1,17 @@
+// Event bubbling and stopp ropogation
+const  outer=document.getElementById("outer");
+const  inner=document.getElementById("inner");
+const  innerButton=document.getElementById("innerButton");
+
+outer.addEventListener("click",function(){
+    console.log("outer div clicked");
+
+});
+inner.addEventListener("click",function(){
+    console.log("inner div clicked");
+});
+innerButton.addEventListener("click",function(event){
+    console.log("innerButton div clicked");
+    event.stopPropagation();
+    console.log("propogation stopped at button");
+});

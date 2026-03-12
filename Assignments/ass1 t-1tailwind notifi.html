@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>tailwind css</title>
+</head>
+<body class="m-9 p-9 bg-blue-100 border-blue-250 border-5">
+    
+    <!-- Header Row -->
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-5xl font-bold  text-aqua-800 ">
+            Notification Center
+        </h2>
+        <span class="inline-flex items-center bg-blue-500 text-blue-900 text-xs font-semibold px-3 py-1 rounded-full">
+            3 New
+        </span>
+    </div>
+        
+        <!-- Alert Item (High Priority) -->
+        <div class="bg-red-100 border-l-4 border-red-500 p-4 rounded-r-lg flex items-center shadow-sm">
+            <div class="flex-1">
+                <p class="text-sm font-bold text-red-900">Action Requried</p>
+                <p class="text-xs text-red-600">Your last payment attempt failed.Update your payment menthod to avoid serive interrupation...</p>
+            </div>
+        </div>
+
+        <!-- Standard Notification -->
+        <div class="bg-yellow-100 border-l-4 border-beige-500 p-4 rounded-r-lg flex items-center shadow-sm">
+            <div class="flex-1">
+                <p class="text-sm font-bold text-beige-900">Maintenance Notice</p>
+                <p class="text-xs text-beige-500">The system will undergo maintenance tonight. Some featues may be temporarily unavailable...</p>
+            </div>
+        </div>
+        <br>
+        <br>
+        <button class="w-20 h-15 text-black bg-black-900 rounded-md hover:bg-blue-200">Veiw All</button>
+        <button class="w-20 h-15 text-black bg-black-900 rounded-md hover:bg-blue-200">Dismiss</button>
+
+        <!-- Metric Snapshot Strip Container -->
+<div class="flex flex-col bg-white p-6 m-4 rounded-xl shadow">
+  
+  <div class="flex items-center justify-between mb-4">
+    
+    <!-- Three Metric Blocks Side-by-Side -->
+    <div class="flex space-x-12">
+      
+      <!-- Metric Block 1 -->
+      <div class="flex flex-col">
+        <span class="text-sm text-gray-500">Active Users</span>
+        <div class="flex items-center space-x-2">
+          <span class="text-xl font-bold tracking-wide">12,480</span>
+          <span class="inline-flex items-center bg-green-100 text-green-700 text-xs px-2.5 py-0.5 rounded-full font-medium">Up</span>
+        </div>
+      </div>
+
+      <!-- Metric Block 2 -->
+      <div class="flex flex-col">
+        <span class="text-sm text-gray-500">Requests / Min</span>
+        <div class="flex items-center space-x-2">
+          <span class="text-xl font-bold tracking-wide">1,240</span>
+          <span class="inline-flex items-center bg-blue-100 text-blue-700 text-xs px-2.5 py-0.5 rounded-full font-medium">Stable</span>
+        </div>
+      </div>
+
+      <!-- Metric Block 3 -->
+      <div class="flex flex-col">
+        <span class="text-sm text-gray-500">Error Rate</span>
+        <div class="flex items-center space-x-2">
+          <span class="text-xl font-bold tracking-wide">2.1%</span>
+          <span class="inline-flex items-center bg-red-100 text-red-700 text-xs px-2.5 py-0.5 rounded-full font-medium">Down</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions Section -->
+    <div>
+      <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg shadow font-medium">
+        Download Report
+      </button>
+    </div>
+  </div>
+
+  <!-- Bottom Section: Inline Alert -->
+  <div class="bg-red-100 border-l-4 border-red-500 p-2 inline-flex items-center">
+    <p class="text-sm text-red-700 leading-relaxed">
+      Scheduled maintenance tonight may briefly affect dashboard updates.
+    </p>
+  </div>
+</div>
+
+
+
+
+</body>
+</html>

@@ -11,7 +11,7 @@ function fetchPost(url){
         return response.json();
     })
     .then(function(data){
-        statusOutput.textContent="success:"+JSON.stringify(data,null,3);
+        statusOutput.textContent="success:"+JSON.stringify(data,null,2);
     })
     .catch(function(error){
         statusOutput.textContent="Error:"+error.message;

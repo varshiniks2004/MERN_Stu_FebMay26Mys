@@ -14,6 +14,6 @@ app.get("/admin",function(req,res,next){
 },function(req,res){
     res.send("admin route reached.")
 });
-app.listen(4000,function(){
-    console.log("express server running at http://localhost:4000");
+app.listen(3000,function(){
+    console.log("express server running at http://localhost:3000");
 });

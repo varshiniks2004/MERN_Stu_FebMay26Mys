@@ -88,8 +88,8 @@ app.post("/login", function (req, res) {
     res.json({
         success: true,
         message: "Login successful",
-        accessToken,
-        refreshToken
+        accessToken:accessToken,
+        refreshToken:refreshToken
     });
 });
 

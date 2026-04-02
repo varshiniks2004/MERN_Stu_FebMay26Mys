@@ -1,6 +1,6 @@
 //JWT fundamenyals:token gen and verify
 const jwt=require("jsonwebtoken");
-const secretKey="monkey123";
+const secretKey="donkey123";
 //payload holds small non sensitive data]
 const payload={
     userId:101,

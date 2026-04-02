@@ -1,0 +1,25 @@
+// setting  and reading cookies
+const express = require("express");
+const cookieparser=require("cookie-parser");
+const app = express();
+
+// cookie-parser read the cookie request header and places the parsed value into req.cookies
+app.use(cookieparser());
+app.get("/set-language",function(req,res){
+    res.cookie("language","english",{
+        maxAge:60*60*1000,
+        
+    });
+    res.send("language cookie set to 'english'");
+
+});
+app.get("/read-language",function(req,res){
+    const language = req.cookies.language;
+    res.json({
+        message:"cookie read from request",
+        language:language ||"No langauage cookie found"
+    });
+});
+app.listen(4000, function () {
+    console.log("JWT demo server running at http://localhost:4000");
+});

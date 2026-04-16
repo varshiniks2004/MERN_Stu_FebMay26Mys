@@ -1,70 +1,64 @@
-// Basics of Embedding anf referencing
+//Basics of embedding and referencing
+
 const mongoose = require("mongoose");
 
-async function main(){
+async function main() {
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/embrel');
+        await mongoose.connect("mongodb://127.0.0.1:27017/embrel");
         console.log("Connected to MongoDB");
 
         const orderSchema = new mongoose.Schema({
-            product:String,
-            price:Number
+            product: String,
+            price: Number
         });
-
-        // Inside of userSchema we are embedding orderSchema
         const userSchema = new mongoose.Schema({
-            name:String,
-            orders:[orderSchema] // Embedded document
+            name: String,
+            orders: [orderSchema]  //embedded document
         });
-
-        const User = mongoose.model('User',userSchema);
+        const User = mongoose.model("User", userSchema);
         const embeddedUser = await User.create({
-            name:"Varsh",
-            orders:[
-                {product:"Laptop",price:50000},{product:"Printer",price:10000},{product:"Projector",price:70000}
+            name: "Veeru",
+            orders: [
+                { product: "Laptop", price: 50000 },
+                { product: "Printer", price: 10000 },
+                { product: "Projector", price: 70000 }
             ]
-        })
-
-        // fetch one user data 
-        // console.log("User Created :",embeddedUser); 
-        // fetches all the user data in user model
-        const users=await User.find().lean();
-        console.log(JSON.stringify(users,null,2));
-        console.log("Users created:\n");
+        });
+        console.log("Users:\n");
+        //console.log("Display All user products:",embeddedUser);
         console.log(await User.find());
 
-        // Referencing 
+        //Referencing 
         const userRefSchema = new mongoose.Schema({
-            name:String
+            name: String,
         });
 
         const orderRefSchema = new mongoose.Schema({
-            product:String,
-            price:Number,
-            user:{
-                type:mongoose.Schema.Types.ObjectId,
-                ref:'UserRef'
+            product: String,
+            price: Number,
+            user: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'UserRef'
             }
         });
-        const UserRef = mongoose.model('UserRef',userRefSchema);
-        const OrderRef = mongoose.model('OrderRef',orderRefSchema);
+        const UserRef = mongoose.model('UserRef', userRefSchema);
+        const OrderRef = mongoose.model('OrderRef', orderRefSchema);
 
-        const User1 = await UserRef.create({
-            name:"Varsh"
+        const refUser = await UserRef.create({
+            name: "varsh"
         });
-
-        const Order = await OrderRef.create(
-            {product:"Phone",price:60000,user:refUser._id},
-            {product:"Dyson hairSetting tool",price:50000,user:refUser._id},
-            {product:"Airpods",price:20000,user:refUser._id}
-        );
-
-        console.log
-
-    } catch (error) {
-        console.log("Error:",error.message);
+        await OrderRef.create([
+            {product:"Laptop", price:7000,user:refUser._id},
+            {product:"phone",price:10000,user:refUser._id}
+        ]);
+        console.log("Referenced orders:");
+        console.log(await OrderRef.find().lean());
+        console.log(JSON.stringify(userSchema,null,2));
     }
-    finally{
+    catch (error) {
+        console.error("Error:", error.message);
+    }
+    finally {
         await mongoose.disconnect();
         console.log("Disconnected from DB.");
     }

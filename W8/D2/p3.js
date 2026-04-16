@@ -1,4 +1,4 @@
-// 
+// combine example of virtual,index,filter,select,sort,lean
 const mongoose = require("mongoose");
 
 async function demo() {

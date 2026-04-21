@@ -1,4 +1,4 @@
-//routes related to auth is created
+//routes related to auth is created with req  type
 const  express=require("express");
 const router=express.Router();
 const authController=require("../controllers/auth.controller")

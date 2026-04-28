@@ -1,4 +1,4 @@
-//
+//user Schema and module created
 const mongoose=require("mongoose");
 const bcrypt=require("bcrypt");
 const userSchema=new mongoose.Schema({
@@ -12,7 +12,7 @@ const userSchema=new mongoose.Schema({
         required:[true,"email is required"],
         unique:true,//emaiil should me non reduandant data so we use unique
         lowercase:true,
-        match:[/^\s+@\s+\.\s+$/,"Please use valid email"],
+        match:[/^\S+@\S+\.\S+$/,"Please use valid email"],
         index:true,
     },
      password:{

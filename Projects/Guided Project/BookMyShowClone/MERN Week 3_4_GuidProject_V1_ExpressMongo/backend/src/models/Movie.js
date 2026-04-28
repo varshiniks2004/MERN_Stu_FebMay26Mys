@@ -1,6 +1,6 @@
-//created movieSchema model and exported
-const mongoose=require("mongoose");
-const movieSchema=new mongoose.Schema({
+const mongoose = require("mongoose");
+
+const movieSchema = new mongoose.Schema({
     title:{
         type:String,
         required:[true,"Movie title is required"],
@@ -8,24 +8,21 @@ const movieSchema=new mongoose.Schema({
         index:true,
     },
     genre:{
-        typr:String,
+        type:String,
         required:[true,"Genre is required"],
         enum:[
-            "Action","Drama","Comedy","horror","sci-fi","romance","Thriller",
+            "Action","Comedy","Drama","Horror","Sci-fi",
+            "Romance","Thriller",
         ],
         index:true,
-
     },
     rating:
     {
         type:Number,
         required:true,
-        min:[1,"Rating must be atleast 1"],
+        min:[1,"Rating must be at least 1"],
         max:[5,"Rating cannot exceed 5"],
         index:true,
-
-
-
     },
     duration:{
         type:Number,
@@ -33,7 +30,7 @@ const movieSchema=new mongoose.Schema({
     },
     releaseDate:{
         type:Date,
-        required:[true,"Release date is reequired"],
+        required:[true,"Release date is required"],
         index:true,
     },
     poster:{
@@ -44,29 +41,24 @@ const movieSchema=new mongoose.Schema({
     language:{
         type:String,
         index:true,
-        
     },
     isActive:{
         type:Boolean,
         default:true,
     },
-},
-    {
-        timestamps:true,
 
-    });
-    //compound index
-    movieSchema.index({genre:1,rating:-1});
-    //text index
-    movieSchema.index({title:"text"});
+},{
+    timestamps:true,
+});
 
-    //virtual fields
-    movieSchema.virtual("isReleased").get(function(){
-        return this.releaseDate<=new Date();
+// comppund index
+movieSchema.index({genre:1,rating:-1});//genre 1 is a asscending order 
 
-    });
-    module.exports=mongoose.model("Movie",movieSchema);
+// Text index
+movieSchema.index({title:"text"});
 
-    
-
-    
+// virtua field
+movieSchema.virtual("isReleased").get(function(){
+    return this.releaseDate<=new Date();
+});
+module.exports=mongoose.model("Movie",movieSchema);

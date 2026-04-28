@@ -1,10 +1,13 @@
-//load details from environment variables
+//Load environment variables
 require("dotenv").config();
-const app=require("./app");
-const connectDB=require("./src/config/db")
-//connectdb
+
+const app = require("./src/app");
+const connectDB = require("./src/config/db");
+// Connect Db
 connectDB();
-const PORT=process.env.PORT||5000;
+//Port config
+const PORT = process.env.PORT || 5000;
+
 app.listen(PORT,()=>{
     console.log(`Server running on port ${PORT}`);
 });

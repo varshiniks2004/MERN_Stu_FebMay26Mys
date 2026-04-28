@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded",function(){
     renderExperience();
     renderCertifications();
     renderHackathons();
+    renderAboutMe();
+
 
     initScrollProgress();
     initScrollSpy();
@@ -20,4 +22,7 @@ document.addEventListener("DOMContentLoaded",function(){
     initRecentlyViewed();
     initDynamicGreeting();
     initGeolocation();
+    initAboutMe();
+   
+
 })

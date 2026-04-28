@@ -9,7 +9,7 @@ exports.register = async(req,res,next)=>{
 
         res.status(201).json({
             success:true,
-            message:"User registered.OTP sent.",
+            message:"User registered OTP sent.",
             data:result,
         });
     } catch (error) {

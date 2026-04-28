@@ -1,11 +1,10 @@
-//created bookingschema model added validaton created index and exported model
-const mongoose=require("mongoose");
-const { applyTimestamps } = require("./User");
-const bookingSchema=new mongoose.Schema({
+const mongoose = require("mongoose");
+const bookingSchema = new mongoose.Schema({
     userId:{
-        type:mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref:"User",
-        required
+        required:true,
+        index:true,
     },
     showId:{
         type:mongoose.Schema.Types.ObjectId,
@@ -15,7 +14,7 @@ const bookingSchema=new mongoose.Schema({
     },
     seats:{
         type:[String],
-        requires:true,
+        required:true,
     },
     totalSeats:{
         type:Number,
@@ -26,28 +25,28 @@ const bookingSchema=new mongoose.Schema({
         enum:["booked","cancelled"],
         default:"booked",
         index:true,
-
     },
     bookingTime:{
-        type:Data,
+        type:Date,
         default:Date.now(),
     },
-    },
+},
+{
+    timestamps:true,
+});
 
-    {
-        Timestamps:true,
-    });
-    //add validation
-    bookingSchema.pre("save",function(next){
-        if(this.seats.length===0){
-            return next(new Error("At least one seat must me selected"));
-        }
-        if(this.totalSeats=this.seats.length){
-            return next(new Error("seat count mismatched"));
-        }
-        next();
+//Add validation
+bookingSchema.pre("save",function () {
+    if (this.seats.length === 0) {
+        // return next(new Error("At least one seat must be selected"));
+        throw new Error("At least one seat must be selected");
+    }
+    if(this.totalSeats!=this.seats.length){
+        // return next(new Error("Seat count mismatch"));
+        throw new Error("Seat count mismatch");
+    }
+});
+//Compound index
+bookingSchema.index({userId:1,showId:1});
 
-    });
-    //compound index
-    bookingSchema.index({userId:1,showId:1});
-    module.exports=mongoose.model("Booking",bookingSchema);
+module.exports = mongoose.model("Booking",bookingSchema);

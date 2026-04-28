@@ -1,0 +1,41 @@
+// cancel.js
+// to cancel the existing booking if exists
+const bookingEmitter = require("./events");
+const { getCurrentBooking, clearCurrentBooking } = require("./booking");
+const { appendLogAsync } = require("../fileManager");
+
+async function cancelBooking(movies){
+    const booking = getCurrentBooking();
+
+    if (!booking) {
+        bookingEmitter.emit("bookingfailed","No booking found to cancel");
+        return null;
+    }
+
+    const movie = movies.find((m)=>m.id === booking.movieId);
+    if (!movie) {
+        bookingEmitter.emit("bookingfailed","Movie data not found while cancelling booking.");
+        return null;
+    }
+
+    const showtime = movie.showtimes.find((show)=>show.time.toLowerCase()===booking.time.toLowerCase());
+    if(!showtime){
+        bookingEmitter.emit("bookingfailed","Showtime data not Found.");
+        return null;
+    }
+
+    // restore seats
+    showtime.seatsAvailable +=booking.seatCount;
+
+    // clear CurrentBooking
+    clearCurrentBooking();
+
+    await appendLogAsync(`Booking cancelled: ${booking.bookingId} for ${booking.movieTitle}`);
+    bookingEmitter.emit("bookingCancelled",booking);
+
+    return booking;
+}
+
+module.exports = {
+    cancelBooking
+};

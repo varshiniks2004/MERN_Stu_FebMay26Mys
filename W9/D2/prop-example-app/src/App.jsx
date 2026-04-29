@@ -3,8 +3,8 @@ import './App.css'
 // import { PropDestructuring } from "./components/P2"
 // import { PropsChildren } from './components/P3';
 // import {PropDrillingDemo} from "./components/P4"
- import{SharedStateParent} from"./components/p5"
-
+//  import{SharedStateParent} from"./components/p5"
+import { CompositionDemo } from './components/p6'
 
 function App() {
 
@@ -14,7 +14,8 @@ function App() {
       {/* <PropDestructuring/> */}
       {/* <PropsChildren /> */}
       {/* <PropDrillingDemo /> */}
-      <SharedStateParent/>
+      {/* <SharedStateParent/> */}
+      <CompositionDemo/>
     </>
   )
 }

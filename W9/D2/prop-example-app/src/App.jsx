@@ -5,7 +5,8 @@ import './App.css'
 // import {PropDrillingDemo} from "./components/P4"
 //  import{SharedStateParent} from"./components/p5"
 // import { CompositionDemo } from './components/p6'
-import { ObjectAndArrayProps } from './components/p7'
+// import { ObjectAndArrayProps } from './components/p7'
+import { PropsImmutability } from './components/p8'
 
 function App() {
 
@@ -17,7 +18,8 @@ function App() {
       {/* <PropDrillingDemo /> */}
       {/* <SharedStateParent/> */}
       {/* <CompositionDemo/> */}
-      <ObjectAndArrayProps/>
+      {/* <ObjectAndArrayProps/> */}
+      <PropsImmutability/>
     </>
   )
 }

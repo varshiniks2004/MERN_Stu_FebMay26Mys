@@ -27,11 +27,11 @@ function DrillUserPanel({ user }){
 }
 
 function ProfileAvatar({ user }){
-    return <img src={`/${user.name}.png`} alt={user.name}/>
+    return <img src={`/${user.img}`} alt={user.name}/>
 }
 
 export function PropDrillingDemo(){
-    const user = {name :'varsh'};
+    const user = {name :'varsh',img:"varsh photo.jpg"};
     return(
         <div>
             <h3>Problem: prop drilling</h3>

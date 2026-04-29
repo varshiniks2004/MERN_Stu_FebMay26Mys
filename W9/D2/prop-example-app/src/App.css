@@ -1,0 +1,18 @@
+/* Basic reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  }
+
+/* Card style */
+.card {
+background-color: aqua;
+padding: 20px;
+border: 1px solid black;
+}
+
+/* Text inside card */
+.card h3 {
+color: black;
+}

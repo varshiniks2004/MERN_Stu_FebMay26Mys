@@ -1,3 +1,4 @@
+//passing arguments to event handler
 import { useState } from "react";
     export function PassingArguments(){
     const[message,setMessage]=useState('no message yet');

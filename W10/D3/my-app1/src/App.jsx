@@ -1,13 +1,15 @@
 import './App.css'
 // import { EventBasics } from './components/P1'
-import { EventObject } from './components/p2'
+// import { EventObject } from './components/p2'
+import { PassingArguments } from './components/p3'
 
 function App() {
 
   return (
     <>
       {/* <EventBasics /> */}
-      <EventObject/>
+      {/* <EventObject/> */}
+      <PassingArguments/>
       
     </>
   )

@@ -8,7 +8,7 @@ const ChildButton = memo(function ChildButton({ onClick }) {
 
     return (
         <button onClick={onClick}>
-            Increment Count
+            Increment 
         </button>
     );
 });

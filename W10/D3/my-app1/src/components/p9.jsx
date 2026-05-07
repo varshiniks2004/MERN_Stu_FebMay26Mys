@@ -1,4 +1,4 @@
-//stop event propagation
+//stop event propagation//
 //event stopPropagation//
 export function EventObj(){
     const handleParentClick = (event) => {
@@ -31,4 +31,4 @@ export function EventObj(){
             </div>
         </section>
     )
-}
+};

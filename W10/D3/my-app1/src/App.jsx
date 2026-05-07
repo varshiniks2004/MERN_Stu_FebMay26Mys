@@ -4,7 +4,8 @@ import './App.css'
 // import { PassingArguements } from './components/P3'
 // import { UseCallbackEvents } from './components/P5'
 // import { EventDeleagation } from './components/P6'
-import { FormsPattern } from './components/p7'
+// import { FormsPattern } from './components/p7'
+import { KeyboardEvent } from './components/p8'
 
 function App() {
 
@@ -15,7 +16,8 @@ function App() {
       {/* <PassingArguements /> */}
       {/* <UseCallbackEvents /> */}
       {/* <EventDeleagation /> */}
-      <FormsPattern/>
+      {/* <FormsPattern/> */}
+      <KeyboardEvent/>
     </>
   )
 }

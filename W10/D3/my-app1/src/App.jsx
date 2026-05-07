@@ -1,25 +1,25 @@
 import './App.css'
-// import { EventBasics } from './components/P1'
-// import { EventObject } from './components/P2'
-// import { PassingArguements } from './components/P3'
-// import { UseCallbackEvents } from './components/P5'
-// import { EventDeleagation } from './components/P6'
-// import { FormsPattern } from './components/p7'
-import { KeyboardEvent } from './components/p8'
+// import { EventBasics } from "./components/P1";
+// import { EventObject } from "./components/P2";
+// import { PassingArguments } from "./components/P3";
+// import { UseCallbackEvents } from "./components/P5";
+// import { EventDelegation } from "./components/P6";
+// import { FormsPattern } from "./components/P7";
+// import { KeyboardEvent } from "./components/P8";
+import { EventObj } from "./components/P9";
 
 function App() {
-
   return (
     <>
       {/* <EventBasics /> */}
       {/* <EventObject /> */}
-      {/* <PassingArguements /> */}
+      {/* <PassingArguments /> */}
       {/* <UseCallbackEvents /> */}
-      {/* <EventDeleagation /> */}
-      {/* <FormsPattern/> */}
-      <KeyboardEvent/>
+      {/* <EventDelegation /> */}
+      {/* <FormsPattern /> */}
+      {/* <KeyboardEvent /> */}
+      <EventObj />
     </>
   )
 }
-
 export default App
